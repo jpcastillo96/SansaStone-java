@@ -4,9 +4,11 @@ public class Carrete extends Carta {
     private int curacion;
     
     public Carrete(){
+        String a; 
         this.nombre = "";
         this.descripcion = "";
         this.curacion = 0;
+        
     }
     
     public Carrete(String nombre,String descripcion,int curacion){
