@@ -1,4 +1,7 @@
 package tarea_2;
+
+import java.util.Scanner;
+
 public class main {
     public static void main(String[] args) {
         int i;
@@ -29,6 +32,11 @@ public class main {
                 System.out.println(cardAux.getNombre()+"->"+cardAux.getDescripcion());
             }
         }
+        Duelo d = new Duelo();
+        Scanner name = new Scanner(System.in);
+        Sansano jugador1 = new Sansano();
+        Sansano jugador2 = new Sansano();
+        
         
         
         /*List<Carta> list1;

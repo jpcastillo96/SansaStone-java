@@ -31,7 +31,7 @@ public class Sansano {
     }
     
     public void setPrioridad(int n){
-        this.prioridad = n;
+            this.prioridad = n;
     }
     
     public void setNombre(String newName){

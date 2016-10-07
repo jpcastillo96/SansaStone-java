@@ -17,14 +17,6 @@ public class Profesor extends Carta {
         this.daño = daño;
     }
     
-    public String getNombre(){
-        return this.nombre;
-    }
-    
-    public String getDescripcion(){
-        return this.descripcion;
-    }
-    
     public void cartaAzar(int numero){
         if (numero == 7){
             setNombre("Bahamondes");
@@ -51,10 +43,18 @@ public class Profesor extends Carta {
             //iniCarta("MaxRivera",": Reduce 280 puntos de prioridad",280);
         }
     }
-
+    
+    public void Recorregir(Sansano jugador){
+        int priori = jugador.getPrioridad() - daño;
+        if (priori < 0){
+            priori = 0;
+        }
+        jugador.setPrioridad(priori);
+    }
+    
     @Override
     public void Activar(Sansano jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Recorregir(jugador);
     }
     
     
