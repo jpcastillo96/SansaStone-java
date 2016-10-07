@@ -1,38 +1,30 @@
 package tarea_2;
 
+import java.util.Scanner;
+
 public class Curso extends Carta{
     int ataque;
     int defensa;
+    
     public Curso(){
-        this.nombre="";
-        this.descripcion="";
-        this.ataque=0;
-        this.defensa=0;
+        this ("","",0,0);
     }
+    
     public Curso(String nombre,String descripcion,int ataque, int defensa){
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.ataque = ataque;
         this.defensa = defensa;
     }
-    public void setNombre(String nombre){
-        this.nombre = nombre;
-    }
-    public void setDescripcion(String descripcion){
-        this.descripcion = descripcion;
-    }
+    
     public void setAtaque(int ataque){
         this.ataque = ataque;
     }
+    
     public void setDefensa(int defensa){
         this.defensa=defensa;
     }
-    public String getNombre(){
-        return this.nombre;
-    }
-    public String Descripcion(){
-        return this.descripcion;
-    }
+    
     public void cartaAzar(int numero){
         if (numero == 1){
             setNombre("Matemáticas");
@@ -76,12 +68,33 @@ public class Curso extends Carta{
             //Curso("EDD",": Ataca 430/Cura 120 puntos de prioridad. Cantidad: 4",430,120);
         }
     }
-    public int Aprobar(Carta Curso,Sansano jugador){
-        return 0;
+    public void  Aprobar(Sansano jugador){
+        int priori = jugador.getPrioridad() + defensa;
+        if (priori > 3000){
+            priori = 3000;
+        }
+        jugador.setPrioridad(priori);      
     }
     
-    public int Reprobar(){
-        return 0;
+    public void  Reprobar(Sansano jugador){
+       int priori = jugador.getPrioridad() - ataque;
+       if (priori < 0){
+           priori = 0;
+       }
+       jugador.setPrioridad(priori);
+    }
+
+    @Override
+    public void Activar(Sansano jugador) {
+        Scanner sc = new Scanner(System.in);
+        int opcion = sc.nextInt();
+        if (opcion == 0){
+            Aprobar(jugador);
+        }
+        if (opcion == 1){
+            Reprobar(jugador);
+        }
+            
     }
     
 }

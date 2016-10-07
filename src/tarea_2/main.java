@@ -6,7 +6,6 @@ public class main {
         Profesor ejemplo2 = new Profesor();
         Carrete ejemplo3 = new Carrete();
         Sansano jugador = new Sansano();
-        jugador.iniSansano("Juan",3000);
         int[] arreglo = {0,0};
         jugador.crearMazo(arreglo);
         
@@ -17,7 +16,7 @@ public class main {
             if (jugador.getMazo().get(x).getClass()==ejemplo1.getClass()){
                 Curso cardAux;
                 cardAux = (Curso)jugador.getMazo().get(x);
-                System.out.println(cardAux.getNombre()+"->"+cardAux.Descripcion());
+                System.out.println(cardAux.getNombre()+"->"+cardAux.getDescripcion());
             }
             if (jugador.getMazo().get(x).getClass()==ejemplo2.getClass()){
                 Profesor cardAux;

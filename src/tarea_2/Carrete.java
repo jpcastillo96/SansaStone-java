@@ -1,14 +1,12 @@
 package tarea_2;
 
+import java.util.Scanner;
+
 public class Carrete extends Carta {
     private int curacion;
     
-    public Carrete(){
-        String a; 
-        this.nombre = "";
-        this.descripcion = "";
-        this.curacion = 0;
-        
+    public Carrete(){       
+        this("","",0);
     }
     
     public Carrete(String nombre,String descripcion,int curacion){
@@ -16,15 +14,13 @@ public class Carrete extends Carta {
         this.descripcion = descripcion;
         this.curacion = curacion;
     }
+    public int getCuracion(){
+        return this.curacion;
+    }
     public void setCuracion(int curacion){
         this.curacion = curacion;
     }
-    public String getNombre(){
-        return this.nombre;
-    }
-    public String getDescripcion(){
-        return this.descripcion;
-    }
+    
     public void cartaAzar(int numero){
         if (numero == 11){
             setNombre("Cerrito");
@@ -62,6 +58,21 @@ public class Carrete extends Carta {
             setCuracion(125);
             //iniCarta("FiestaOmbligo","Recupera 125 puntos de prioridad.",125);
         }
+    }
+    
+    public void Carretear(Sansano jugador){
+        int priori = jugador.getPrioridad() + curacion;
+        if (priori > 3000){
+            priori = 3000;
+        }
+        jugador.setPrioridad(priori);
+    }
+    
+    @Override
+    public void Activar(Sansano jugador) {
+        Scanner sc = new Scanner(System.in);
+        int opcion = sc.nextInt();
+        Carretear(jugador);
     }
     
     

@@ -6,24 +6,38 @@ import java.util.Random;
 
 public class Sansano {
     private String nombre;
-    private int prioridad;
+    private int prioridad;    
     List mazo= new LinkedList();
-    public int iniSansano(String nombre,int prioridad){
+    
+    public Sansano(String nombre,int prioridad){
         this.nombre = nombre;
-        this.prioridad = prioridad;
-        return 1;
-        
+        this.prioridad = prioridad;  
     }
     
-    public String Nombre(){
+    public Sansano(){
+        this("Oponente",3000);
+    }
+    
+    public String getNombre(){
         return this.nombre;
     }
-    public int Prioridad(){
+    
+    public int getPrioridad(){
         return this.prioridad;
     }
+    
     public List getMazo(){
         return this.mazo;
     }
+    
+    public void setPrioridad(int n){
+        this.prioridad = n;
+    }
+    
+    public void setNombre(String newName){
+        this.nombre = newName;
+    }
+    
     public void crearMazo(int[]opciones){
         if (opciones[0] == 0){
             int[] cartas1 = {1,4,2,6,3,4,1,1,1,1,1,1,1,1,1,1};

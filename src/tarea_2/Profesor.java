@@ -2,23 +2,29 @@ package tarea_2;
 
 public class Profesor extends Carta {
     private int daño;
+    
     public Profesor(){
         this("","",0);
     }
+    
     public Profesor(String nombre,String descripcion,int daño){
         this.nombre = nombre; 
         this.descripcion = descripcion;
         this.daño = daño;
     }
+    
     public void setDaño(int daño){
         this.daño = daño;
     }
+    
     public String getNombre(){
         return this.nombre;
     }
+    
     public String getDescripcion(){
         return this.descripcion;
     }
+    
     public void cartaAzar(int numero){
         if (numero == 7){
             setNombre("Bahamondes");
@@ -44,6 +50,11 @@ public class Profesor extends Carta {
             setDaño(280);
             //iniCarta("MaxRivera",": Reduce 280 puntos de prioridad",280);
         }
+    }
+
+    @Override
+    public void Activar(Sansano jugador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
