@@ -1,5 +1,7 @@
 package tarea_2;
 
+import java.util.Scanner;
+
 public class Profesor extends Carta {
     private int daño;
     
@@ -54,6 +56,8 @@ public class Profesor extends Carta {
     
     @Override
     public void Activar(Sansano jugador) {
+        System.out.println("Ingrese cualquier número para continuar:");
+        Scanner opcion = new Scanner(System.in);
         Recorregir(jugador);
     }
     

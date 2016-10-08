@@ -70,6 +70,7 @@ public class Carrete extends Carta {
     
     @Override
     public void Activar(Sansano jugador) {
+        System.out.println("Ingrese cualquier numero para continuar:");
         Scanner sc = new Scanner(System.in);
         int opcion = sc.nextInt();
         Carretear(jugador);

@@ -86,6 +86,7 @@ public class Curso extends Carta{
 
     @Override
     public void Activar(Sansano jugador) {
+        System.out.println("Ingrese 0 para curarse y 1 para atacar :");
         Scanner sc = new Scanner(System.in);
         int opcion = sc.nextInt();
         if (opcion == 0){

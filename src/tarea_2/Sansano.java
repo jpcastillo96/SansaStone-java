@@ -7,7 +7,7 @@ import java.util.Random;
 public class Sansano {
     private String nombre;
     private int prioridad;    
-    List mazo= new LinkedList();
+    List <Carta> mazo= new LinkedList();
     
     public Sansano(String nombre,int prioridad){
         this.nombre = nombre;

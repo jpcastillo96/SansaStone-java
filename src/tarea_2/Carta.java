@@ -19,7 +19,5 @@ public abstract class Carta {
     
     public void setDescripcion(String descripcion){
         this.descripcion = descripcion;
-    }    
-    
-       
+    }
 }
