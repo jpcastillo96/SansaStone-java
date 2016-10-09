@@ -18,9 +18,8 @@ public class ConUnAmigo implements ModoJuego{
 
     @Override
     public void asignarCartas(Sansano jugador1, Sansano jugador2) {
-        int [] option = {0,0};
-        jugador1.crearMazo(option);
-        jugador2.crearMazo(option);
+        jugador1.crearMazoAzar();
+        jugador2.crearMazoAzar();
 
     }
 }

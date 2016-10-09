@@ -20,19 +20,16 @@ public class UnJugador implements ModoJuego {
 
     @Override
     public void asignarCartas(Sansano jugador1, Sansano jugador2) {
-        int [] optionP = {0,0};
-        jugador1.crearMazo(optionP);
+        jugador1.crearMazoAzar();
         System.out.println("Ingrese 0 para modo Agresivo y 1 para Defensivo :");
         Scanner sc = new Scanner(System.in);
         int modo = sc.nextInt();
         
         if (modo == 0){
-            int [] option = {1,0};
-            jugador2.crearMazo(option);            
+            jugador2.crearMazoAgresivo();            
         }
         if (modo == 1){
-           int [] option = {2,0};
-           jugador2.crearMazo(option);    
+           jugador2.crearMazoDefensivo();    
         }
         
     }
