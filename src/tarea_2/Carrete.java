@@ -66,13 +66,17 @@ public class Carrete extends Carta {
             priori = 3000;
         }
         jugador.setPrioridad(priori);
+        
     }
     
     @Override
     public void Activar(Sansano jugador) {
-        System.out.println("Ingrese cualquier numero para continuar:");
-        Scanner sc = new Scanner(System.in);
-        int opcion = sc.nextInt();
+        int clock =0;
+        int opcion = PeleaCom.activar;
+        while(opcion == 0){
+            clock++;
+            opcion = PeleaCom.activar;
+        }
         Carretear(jugador);
     }
     

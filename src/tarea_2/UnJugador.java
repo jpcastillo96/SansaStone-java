@@ -8,13 +8,13 @@ package tarea_2;
 import java.util.Scanner;
 
 public class UnJugador implements ModoJuego {
-
+    
         @Override
     public void iniciar(Sansano jugador1, Sansano jugador2) {
-        System.out.println("Ingrese su nombre :");
+        /*System.out.println("Ingrese su nombre :");
         Scanner sc1 = new Scanner(System.in);
-        String name1 = sc1.nextLine();
-        jugador1.setNombre(name1);
+        String name1 = sc1.nextLine();*/
+        jugador1.setNombre(registroUnPlayer.name1);
         
     }
 
@@ -22,8 +22,16 @@ public class UnJugador implements ModoJuego {
     public void asignarCartas(Sansano jugador1, Sansano jugador2) {
         jugador1.crearMazoAzar();
         System.out.println("Ingrese 0 para modo Agresivo y 1 para Defensivo :");
-        Scanner sc = new Scanner(System.in);
-        int modo = sc.nextInt();
+        
+        int modo = PeleaCom.Agresivo_Defensivo;
+        while (modo == 5){
+            try {
+                Thread.sleep(1000); // 1000 es tiempo en milisegundos.
+                } catch (Exception e) {
+            e.printStackTrace();
+            }
+            modo = PeleaCom.Agresivo_Defensivo;
+        }
         
         if (modo == 0){
             jugador2.crearMazoAgresivo();            

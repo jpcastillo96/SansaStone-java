@@ -37,7 +37,6 @@ public class Sansano {
     public void setNombre(String newName){
         this.nombre = newName;
     }
-    
     public void crearMazoAzar(){
         int[] cartas1 = {1,4,2,6,3,4,1,1,1,1,1,1,1,1,1,1};
         int[] cartas2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -46,11 +45,11 @@ public class Sansano {
             int numero;
             Random rnd = new Random();  
             numero = (int)((rnd.nextDouble()*16.0)+ 1.0);
+            
             if(cartas2[numero-1] < cartas1[numero-1] && (1 <= numero&&numero <= 6)){
                 Curso carta = new Curso();
                 carta.cartaAzar(numero);
-                mazo.add(carta);
-                //System.out.println("PASO");
+                mazo.add(carta);                
                 cartas2[numero-1]++;
                 cont++;
             }
@@ -74,9 +73,57 @@ public class Sansano {
         
     }
     public void crearMazoAgresivo(){
-        
+        int numero;
+        double index = 20.0;
+        for(int i=1;i<21;i++){
+                Curso carta = new Curso();
+                carta.cartaAgresivo(i);
+                mazo.add(carta);
+        }
+        for (int j=7;j<17;j++){
+            Random rnd = new Random();  
+            numero = (int)((rnd.nextDouble()*index)+ 1.0);
+            if ((7 <= j && j <= 10)){
+                Profesor carta = new Profesor();
+                carta.cartaAzar(j);
+                mazo.add(numero,carta);
+                index++;
+            }
+            else if ((11 <= j && j <= 16)){
+                Carrete carta = new Carrete();
+                carta.cartaAzar(j);
+                mazo.add(numero,carta);
+                index++;
+                
+            }
+            
+        }        
     }
     public void crearMazoDefensivo(){
-        
+        int numero;
+        double index = 20.0;
+        for(int i=1;i<21;i++){
+                Curso carta = new Curso();
+                carta.cartaDefensivo(i);
+                mazo.add(carta);
+        }
+        for (int j=7;j<17;j++){
+            Random rnd = new Random();  
+            numero = (int)((rnd.nextDouble()*index)+ 1.0);
+            if ((7 <= j && j <= 10)){
+                Profesor carta = new Profesor();
+                carta.cartaAzar(j);
+                mazo.add(numero,carta);
+                index++;
+            }
+            else if ((11 <= j && j <= 16)){
+                Carrete carta = new Carrete();
+                carta.cartaAzar(j);
+                mazo.add(numero,carta);
+                index++;
+                
+            }
+            
+        }        
     }
     }

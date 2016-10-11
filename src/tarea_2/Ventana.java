@@ -5,6 +5,9 @@
  */
 package tarea_2;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author JuanPablo
@@ -17,6 +20,11 @@ public class Ventana extends javax.swing.JFrame {
     public Ventana() {
         initComponents();
     }
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("tarea_2/imagenes/icono.png"));
+        return retValue;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,57 +36,115 @@ public class Ventana extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        conUnAmigo = new javax.swing.JButton();
-        UnJugador = new javax.swing.JButton();
+        Amigo = new javax.swing.JButton();
+        Un_jugador = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SansaStone™ 2.0");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setIconImage(getIconImage());
+        setPreferredSize(new java.awt.Dimension(329, 449));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        jLabel2.setText("Elija su modo de juego");
+        jLabel2.setFont(new java.awt.Font("Edwardian Script ITC", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Elija un Modo");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 210, 50));
 
-        conUnAmigo.setText("Con un amigo");
+        Amigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/amigo_press.png"))); // NOI18N
+        Amigo.setBorder(null);
+        Amigo.setBorderPainted(false);
+        Amigo.setContentAreaFilled(false);
+        Amigo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Amigo.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/amigo.png"))); // NOI18N
+        Amigo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/amigo.png"))); // NOI18N
+        Amigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AmigoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Amigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 90, 50));
 
-        UnJugador.setText("Un Jugador");
+        Un_jugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/unPlayer_press.png"))); // NOI18N
+        Un_jugador.setBorder(null);
+        Un_jugador.setBorderPainted(false);
+        Un_jugador.setContentAreaFilled(false);
+        Un_jugador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Un_jugador.setFocusPainted(false);
+        Un_jugador.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/1player.png"))); // NOI18N
+        Un_jugador.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/1player.png"))); // NOI18N
+        Un_jugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Un_jugadorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Un_jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(82, Short.MAX_VALUE)
-                .addComponent(UnJugador)
-                .addGap(34, 34, 34)
-                .addComponent(conUnAmigo)
-                .addGap(82, 82, 82))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(conUnAmigo)
-                    .addComponent(UnJugador))
-                .addGap(81, 81, 81))
-        );
+        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door-Exit-Sign-Out-128 (1).png"))); // NOI18N
+        salir.setBorder(null);
+        salir.setBorderPainted(false);
+        salir.setContentAreaFilled(false);
+        salir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door_press.png"))); // NOI18N
+        salir.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door_press.png"))); // NOI18N
+        salir.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door_press.png"))); // NOI18N
+        salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                salirMouseClicked(evt);
+            }
+        });
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Ultimate-Material-Lollipop-Collection-65.png"))); // NOI18N
+        jLabel3.setPreferredSize(new java.awt.Dimension(1024, 720));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_salirActionPerformed
+
+    private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_salirMouseClicked
+
+    private void Un_jugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Un_jugadorActionPerformed
+        // TODO add your handling code here:
+        registroUnPlayer Multi = new registroUnPlayer();
+        Multi.setLocationRelativeTo(null);
+        Multi.setVisible(true);
+        this.dispose();
+               
+    }//GEN-LAST:event_Un_jugadorActionPerformed
+
+    private void AmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmigoActionPerformed
+        // TODO add your handling code here:
+        Modo modo = new Modo(0);
+        Multiplayer Multi = new Multiplayer();
+        Multi.setLocationRelativeTo(null);
+        Multi.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_AmigoActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+   /* public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -97,17 +163,17 @@ public class Ventana extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ventana().setVisible(true);
-            }
+        /* Create and display the form 
+        java.awt.EventQueue.invokeLater(() -> {
+            new Ventana().setVisible(true);
         });
-    }
+    } */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton UnJugador;
-    private javax.swing.JButton conUnAmigo;
+    private javax.swing.JButton Amigo;
+    private javax.swing.JButton Un_jugador;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }

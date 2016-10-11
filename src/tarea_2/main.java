@@ -3,7 +3,13 @@ package tarea_2;
 import java.util.Scanner;
 
 public class main {
+   
     public static void main(String[] args) {
+        
+        Ventana window = new Ventana();
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
+        
         int i = 0;
         Curso ejemplo1 = new Curso();
         Profesor ejemplo2 = new Profesor();
@@ -12,14 +18,28 @@ public class main {
         Duelo d = new Duelo();
         Sansano jugador1 = new Sansano();
         Sansano jugador2 = new Sansano();
-        System.out.println("Ingrese 0 para UN JUGADOR y 1 CON UN AMIGO :");
+        /* System.out.println("Ingrese 0 para UN JUGADOR y 1 CON UN AMIGO :");
         Scanner sc = new Scanner(System.in);
-        int modoJuego = sc.nextInt();
-        
+        int modoJuego = sc.nextInt();      * 
         
         while (modoJuego!=0 && modoJuego != 1){
             System.out.println("Ingrese un comando valido");
             modoJuego = sc.nextInt();
+        }*/
+        try {
+            Thread.sleep(5000); // 1000 es tiempo en milisegundos.
+            } catch (Exception e) {
+        e.printStackTrace();
+        }
+        Modo ModoBin = new Modo(2);
+        int modoJuego =  ModoBin.getMode();
+        while ((modoJuego != 0) && (modoJuego !=1)){//Cambiar por un reloj!!!!
+            modoJuego =  registroUnPlayer.Modoun; 
+            try {
+                Thread.sleep(1000); // 1000 es tiempo en milisegundos.
+                } catch (Exception e) {
+            e.printStackTrace();
+            }            
         }
         if (modoJuego == 0 ){
             UnJugador modo = new UnJugador();
@@ -112,11 +132,11 @@ public class main {
                 cardAux.Activar(jugador2);
             }
             System.out.println(jugador1.getNombre()+":"+jugador1.getPrioridad()+" / "+jugador2.getNombre()+":"+jugador2.getPrioridad());
-
+            
             d.addTurnos();
             i++;
         }
-       
+        
 
        /*int i;
         Curso ejemplo1 = new Curso();
