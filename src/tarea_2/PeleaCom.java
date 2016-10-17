@@ -66,7 +66,7 @@ public class PeleaCom extends javax.swing.JFrame {
             Defensa.setVisible(false);
             //DefensaB.setVisible(false);
             //AtaqueB.setVisible(false);
-      }
+        }
       
       else{
           AtaqueB.setVisible(false);

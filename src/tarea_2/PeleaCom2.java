@@ -340,7 +340,11 @@ public class PeleaCom2 extends javax.swing.JFrame {
     }//GEN-LAST:event_modoAgresivoActionPerformed
     
     private void DefensaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DefensaActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:            
+        prioridad1.setText(Integer.toString(jugador1.getPrioridad()));
+        prioridad2.setText(Integer.toString(jugador2.getPrioridad()));
+        prioridad1.setVisible(true);
+        prioridad2.setVisible(true);
         if(quienJuega == 0){
             Curso ejemplo1 = new Curso();
             Profesor ejemplo2 = new Profesor();
@@ -368,7 +372,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 cardAux = (Carrete)jugador1.getMazo().get(turnos.getTurnos());
                 cardAux.Carretear(jugador1);
                 texto3.setVisible(true);
-                texto3.setText("pero");
+                texto3.setText(jugador1.getNombre());
                 texto4.setText("Que bien te has curado ");
                 texto5.setText(jugador1.getNombre()+" tu prioridad ahora es :"+jugador1.getPrioridad());
                 quienJuega = 1;
@@ -394,6 +398,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 Ataque.setEnabled(false);
                 Defensa.setEnabled(false);
                 continuar.setEnabled(true);
+                turnos.addTurnos();
             }
             if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                 JOptionPane.showMessageDialog(null,"Esta carta solo te inflinge daño","Mensaje",JOptionPane.PLAIN_MESSAGE);
@@ -410,15 +415,18 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 Ataque.setEnabled(false);
                 Defensa.setEnabled(false);
                 continuar.setEnabled(true);
-            }
-            turnos.addTurnos();
-            
+                turnos.addTurnos();
+            }            
         }
         
     }//GEN-LAST:event_DefensaActionPerformed
 
     private void AtaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtaqueActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:  
+        prioridad1.setText(Integer.toString(jugador1.getPrioridad()));
+        prioridad2.setText(Integer.toString(jugador2.getPrioridad()));
+        prioridad1.setVisible(true);
+        prioridad2.setVisible(true);
         if(quienJuega == 0){
             Curso ejemplo1 = new Curso();
             Profesor ejemplo2 = new Profesor();
@@ -471,6 +479,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 Ataque.setEnabled(false);
                 Defensa.setEnabled(false);
                 continuar.setEnabled(true);
+                turnos.addTurnos();
             }
             if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                 Profesor cardAux;
@@ -483,6 +492,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 Ataque.setEnabled(false);
                 Defensa.setEnabled(false);
                 continuar.setEnabled(true);
+                turnos.addTurnos();
 
             }
             if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
@@ -495,6 +505,70 @@ public class PeleaCom2 extends javax.swing.JFrame {
     public static int activar=0;
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
         // TODO add your handling code here:
+        prioridad1.setText(Integer.toString(jugador1.getPrioridad()));
+        prioridad2.setText(Integer.toString(jugador2.getPrioridad()));
+        prioridad1.setVisible(true);
+        prioridad2.setVisible(true);
+        Ataque.setEnabled(true);
+        Defensa.setEnabled(true);
+        continuar.setEnabled(false);
+        Curso ejemplo1 = new Curso();
+        Profesor ejemplo2 = new Profesor();
+        Carrete ejemplo3 = new Carrete();
+        
+        if ((jugador1.getPrioridad() == 0) || (turnos.getTurnos() == 0)){
+                Podio podio = new Podio(); 
+                podio.setLocationRelativeTo(null);
+                podio.setVisible(true);
+                this.dispose();  
+                k
+        }
+        
+        if (quienJuega == 0){
+                texto3.setText("Es el turno de "+jugador1.getNombre());
+                if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo1.getClass()){
+                    Curso cardAux;
+                    cardAux = (Curso)jugador1.getMazo().get(turnos.getTurnos());
+                    texto4.setText("Tu carta es : "+cardAux.getNombre());
+                    texto5.setText(cardAux.getDescripcion());
+                }
+                else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
+                    Profesor cardAux;
+                    cardAux = (Profesor)jugador1.getMazo().get(turnos.getTurnos());
+                    texto4.setText("Tu carta es : "+cardAux.getNombre());
+                    texto5.setText(cardAux.getDescripcion());
+
+                }
+                else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
+                    Carrete cardAux;
+                    cardAux = (Carrete)jugador1.getMazo().get(turnos.getTurnos());
+                    texto4.setText("Tu carta es : "+cardAux.getNombre());
+                    texto5.setText(cardAux.getDescripcion());
+                }
+            }
+            
+            if (quienJuega == 1){
+                texto3.setText("Es el turno de "+jugador2.getNombre());
+                if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo1.getClass()){
+                    Curso cardAux;
+                    cardAux = (Curso)jugador2.getMazo().get(turnos.getTurnos());
+                    texto4.setText("Tu carta es : "+cardAux.getNombre());
+                    texto5.setText(cardAux.getDescripcion());
+                }
+                else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
+                    Profesor cardAux;
+                    cardAux = (Profesor)jugador2.getMazo().get(turnos.getTurnos());
+                    texto4.setText("Tu carta es : "+cardAux.getNombre());
+                    texto5.setText(cardAux.getDescripcion());
+
+                }
+                else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
+                    Carrete cardAux;
+                    cardAux = (Carrete)jugador2.getMazo().get(turnos.getTurnos());
+                    texto4.setText("Tu carta es : "+cardAux.getNombre());
+                    texto5.setText(cardAux.getDescripcion());
+                }
+            }
         
     }//GEN-LAST:event_continuarActionPerformed
 
