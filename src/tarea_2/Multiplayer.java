@@ -37,8 +37,8 @@ public class Multiplayer extends javax.swing.JFrame {
 
         J1 = new javax.swing.JLabel();
         J2 = new javax.swing.JLabel();
-        P1 = new javax.swing.JTextField();
         P2 = new javax.swing.JTextField();
+        P1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
@@ -52,29 +52,29 @@ public class Multiplayer extends javax.swing.JFrame {
         getContentPane().add(J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 30));
 
         J2.setText("Jugador 2:");
-        getContentPane().add(J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+        getContentPane().add(J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
-        P1.setBackground(new java.awt.Color(51, 0, 51));
-        P1.setCaretColor(new java.awt.Color(255, 204, 204));
-        P1.setSelectedTextColor(new java.awt.Color(204, 204, 255));
-        P1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                P1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 240, -1));
-
-        P2.setBackground(new java.awt.Color(255, 204, 255));
-        P2.setForeground(new java.awt.Color(51, 0, 51));
-        P2.setCaretColor(new java.awt.Color(51, 0, 51));
-        P2.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        P2.setSelectionColor(new java.awt.Color(51, 0, 51));
+        P2.setBackground(new java.awt.Color(51, 0, 51));
+        P2.setCaretColor(new java.awt.Color(255, 204, 204));
+        P2.setSelectedTextColor(new java.awt.Color(204, 204, 255));
         P2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 P2ActionPerformed(evt);
             }
         });
-        getContentPane().add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 240, 30));
+        getContentPane().add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 173, 240, 30));
+
+        P1.setBackground(new java.awt.Color(255, 204, 255));
+        P1.setForeground(new java.awt.Color(51, 0, 51));
+        P1.setCaretColor(new java.awt.Color(51, 0, 51));
+        P1.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        P1.setSelectionColor(new java.awt.Color(51, 0, 51));
+        P1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                P1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 240, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 204, 204));
         jButton1.setText("GO!");
@@ -84,7 +84,7 @@ public class Multiplayer extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 60, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 60, 30));
 
         jButton2.setBackground(new java.awt.Color(51, 0, 51));
         jButton2.setText("Volver");
@@ -96,17 +96,17 @@ public class Multiplayer extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 20));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 20));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/flat-.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void P1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P1ActionPerformed
+    
+    private void P2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_P1ActionPerformed
+    }//GEN-LAST:event_P2ActionPerformed
     private void advertencia(){
             JOptionPane.showMessageDialog(null,"ingrese sus datos","Mensaje",JOptionPane.PLAIN_MESSAGE);
     }
@@ -115,7 +115,11 @@ public class Multiplayer extends javax.swing.JFrame {
         String user1 = P1.getText();
         String user2 = P2.getText();
             if ((user1.length() != 0) && (user2.length() != 0)){
-                PeleaCom Multi = new PeleaCom();
+                Sansano player1 = new Sansano(P1.getText(),3000);
+                Sansano player2 = new Sansano(P2.getText(),3000);
+                player1.crearMazoAzar();
+                player2.crearMazoAzar();
+                PeleaCom Multi = new PeleaCom(player1,player2,1);
                 Multi.setLocationRelativeTo(null);
                 PeleaCom.Name.setText(user1);
                 PeleaCom.Nametxt2.setText(user2);
@@ -138,9 +142,9 @@ public class Multiplayer extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void P2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2ActionPerformed
+    private void P1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_P2ActionPerformed
+    }//GEN-LAST:event_P1ActionPerformed
 
     /**
      * @param args the command line arguments

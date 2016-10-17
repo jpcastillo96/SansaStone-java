@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  * @author Gabriel
  */
 public class registroUnPlayer extends javax.swing.JFrame {
-
+   
     /**
      * Creates new form Registro2
      */
@@ -96,13 +96,16 @@ public class registroUnPlayer extends javax.swing.JFrame {
             String user = Nombre.getText();       
             if (user.length() != 0){
                 name1 = user;
+                Sansano player1 = new Sansano(user,3000);
+                Sansano player2 = new Sansano();
+                System.out.println(player1.getNombre());
+                System.out.println(player2.getNombre());
                 Modo ModoBin = new Modo(0);
                 Modoun = ModoBin.getMode();
-
-                PeleaCom Multi = new PeleaCom(); 
+                PeleaCom2 Multi = new PeleaCom2(player1,player2,0); 
                 Multi.setLocationRelativeTo(null);
-                PeleaCom.Name.setText(user);
-                PeleaCom.Nametxt2.setText("Com");
+                //PeleaCom.Name.setText(user);
+                //PeleaCom.Nametxt2.setText("Oponente");
                 Multi.setVisible(true);
                 this.dispose();
             }

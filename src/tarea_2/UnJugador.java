@@ -14,7 +14,7 @@ public class UnJugador implements ModoJuego {
         /*System.out.println("Ingrese su nombre :");
         Scanner sc1 = new Scanner(System.in);
         String name1 = sc1.nextLine();*/
-        jugador1.setNombre(registroUnPlayer.name1);
+        //jugador1.setNombre(registroUnPlayer.name1);
         
     }
 
