@@ -39,6 +39,8 @@ public class Ventana extends javax.swing.JFrame {
         Amigo = new javax.swing.JButton();
         Un_jugador = new javax.swing.JButton();
         salir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,42 +54,44 @@ public class Ventana extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Edwardian Script ITC", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Elija un Modo");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 280, 50));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 200, 50));
 
-        Amigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/amigo_press.png"))); // NOI18N
+        Amigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/graduates (1).png"))); // NOI18N
         Amigo.setBorder(null);
         Amigo.setBorderPainted(false);
         Amigo.setContentAreaFilled(false);
         Amigo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Amigo.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/amigo.png"))); // NOI18N
-        Amigo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/amigo.png"))); // NOI18N
+        Amigo.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/graduates (1).png"))); // NOI18N
+        Amigo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/graduates (2).png"))); // NOI18N
         Amigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AmigoActionPerformed(evt);
             }
         });
-        getContentPane().add(Amigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 90, 50));
+        getContentPane().add(Amigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 70, 70));
 
-        Un_jugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/unPlayer_press.png"))); // NOI18N
+        Un_jugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/thinking.png"))); // NOI18N
         Un_jugador.setBorder(null);
         Un_jugador.setBorderPainted(false);
         Un_jugador.setContentAreaFilled(false);
         Un_jugador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Un_jugador.setFocusPainted(false);
-        Un_jugador.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/1player.png"))); // NOI18N
-        Un_jugador.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/1player.png"))); // NOI18N
+        Un_jugador.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/thinking (1).png"))); // NOI18N
+        Un_jugador.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/graduate.png"))); // NOI18N
+        Un_jugador.setSelected(true);
         Un_jugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Un_jugadorActionPerformed(evt);
             }
         });
-        getContentPane().add(Un_jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+        getContentPane().add(Un_jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 70, 80));
 
         salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door-Exit-Sign-Out-128 (1).png"))); // NOI18N
         salir.setBorder(null);
         salir.setBorderPainted(false);
         salir.setContentAreaFilled(false);
         salir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door_press.png"))); // NOI18N
+        salir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door_press.png"))); // NOI18N
         salir.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door_press.png"))); // NOI18N
         salir.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door_press.png"))); // NOI18N
         salir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -100,7 +104,19 @@ public class Ventana extends javax.swing.JFrame {
                 salirActionPerformed(evt);
             }
         });
-        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Elephant", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("1 Jugador");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
+
+        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel4.setFont(new java.awt.Font("Elephant", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setText("Multiplayer");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Ultimate-Material-Lollipop-Collection-65.png"))); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(1024, 720));
@@ -139,8 +155,10 @@ public class Ventana extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Amigo;
     private javax.swing.JButton Un_jugador;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }

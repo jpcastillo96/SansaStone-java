@@ -5,6 +5,9 @@
  */
 package tarea_2;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author jpcastillo
@@ -14,10 +17,26 @@ public class Podio extends javax.swing.JFrame {
     /**
      * Creates new form Podio
      */
-    public Podio() {
+    public Podio(int winner) {
         initComponents();
+        if (winner == 1){
+            Titgif.setVisible(true);
+            Titulado.setVisible(true);
+            Expgif.setVisible(false);
+            Expulsado.setVisible(false);
+        }
+        else if (winner == 2){
+            Titgif.setVisible(false);
+            Titulado.setVisible(false);
+            Expgif.setVisible(true);
+            Expulsado.setVisible(true);
+        }
     }
-
+    @Override
+     public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("tarea_2/imagenes/icono.png"));
+        return retValue;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,24 +46,82 @@ public class Podio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        Menu = new javax.swing.JButton();
+        Titulado = new javax.swing.JLabel();
+        Expulsado = new javax.swing.JLabel();
+        jugadorW = new javax.swing.JLabel();
+        Expgif = new javax.swing.JLabel();
+        Titgif = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SansaStone™ 2.0");
+        setIconImage(getIconImage());
+        setPreferredSize(new java.awt.Dimension(398, 305));
+        setResizable(false);
+        setSize(new java.awt.Dimension(397, 305));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door-Exit-Sign-Out-128 (1).png"))); // NOI18N
+        Menu.setBorder(null);
+        Menu.setBorderPainted(false);
+        Menu.setContentAreaFilled(false);
+        Menu.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door_press.png"))); // NOI18N
+        Menu.setSelected(true);
+        Menu.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Door-Exit-Sign-Out-128 (1).png"))); // NOI18N
+        Menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+
+        Titulado.setFont(new java.awt.Font("Haettenschweiler", 1, 48)); // NOI18N
+        Titulado.setForeground(new java.awt.Color(51, 0, 51));
+        Titulado.setText("Te has titulado!");
+        getContentPane().add(Titulado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 390, 50));
+
+        Expulsado.setFont(new java.awt.Font("Haettenschweiler", 1, 44)); // NOI18N
+        Expulsado.setForeground(new java.awt.Color(255, 255, 255));
+        Expulsado.setText("VTR4, te han expulsado!");
+        getContentPane().add(Expulsado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 430, 40));
+
+        jugadorW.setFont(new java.awt.Font("Harlow Solid Italic", 3, 48)); // NOI18N
+        jugadorW.setForeground(new java.awt.Color(0, 102, 102));
+        getContentPane().add(jugadorW, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 160, 70));
+
+        Expgif.setForeground(new java.awt.Color(51, 51, 0));
+        Expgif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/giphy (3).gif"))); // NOI18N
+        getContentPane().add(Expgif, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 400, 320));
+
+        Titgif.setBackground(new java.awt.Color(255, 0, 0));
+        Titgif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/giphy (1).gif"))); // NOI18N
+        getContentPane().add(Titgif, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setOpaque(true);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActionPerformed
+        // TODO add your handling code here:
+        Ventana window = new Ventana();
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);  
+        this.dispose();
+    }//GEN-LAST:event_MenuActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Expgif;
+    private javax.swing.JLabel Expulsado;
+    private javax.swing.JButton Menu;
+    private javax.swing.JLabel Titgif;
+    private javax.swing.JLabel Titulado;
+    private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jugadorW;
     // End of variables declaration//GEN-END:variables
 }

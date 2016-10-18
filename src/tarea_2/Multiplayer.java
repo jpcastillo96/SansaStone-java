@@ -41,6 +41,7 @@ public class Multiplayer extends javax.swing.JFrame {
         P1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,21 +49,28 @@ public class Multiplayer extends javax.swing.JFrame {
         setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        J1.setFont(new java.awt.Font("Elephant", 0, 14)); // NOI18N
+        J1.setForeground(new java.awt.Color(255, 204, 204));
         J1.setText("Jugador 1:");
-        getContentPane().add(J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 30));
+        getContentPane().add(J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, 30));
 
+        J2.setFont(new java.awt.Font("Elephant", 0, 14)); // NOI18N
+        J2.setForeground(new java.awt.Color(255, 204, 204));
         J2.setText("Jugador 2:");
-        getContentPane().add(J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        getContentPane().add(J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
 
         P2.setBackground(new java.awt.Color(51, 0, 51));
+        P2.setForeground(new java.awt.Color(255, 204, 204));
         P2.setCaretColor(new java.awt.Color(255, 204, 204));
+        P2.setDisabledTextColor(new java.awt.Color(255, 204, 204));
         P2.setSelectedTextColor(new java.awt.Color(204, 204, 255));
+        P2.setSelectionColor(new java.awt.Color(153, 255, 204));
         P2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 P2ActionPerformed(evt);
             }
         });
-        getContentPane().add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 173, 240, 30));
+        getContentPane().add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 240, 30));
 
         P1.setBackground(new java.awt.Color(255, 204, 255));
         P1.setForeground(new java.awt.Color(51, 0, 51));
@@ -74,7 +82,7 @@ public class Multiplayer extends javax.swing.JFrame {
                 P1ActionPerformed(evt);
             }
         });
-        getContentPane().add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 240, 30));
+        getContentPane().add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 240, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 204, 204));
         jButton1.setText("GO!");
@@ -84,7 +92,7 @@ public class Multiplayer extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 60, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 60, 30));
 
         jButton2.setBackground(new java.awt.Color(51, 0, 51));
         jButton2.setText("Volver");
@@ -98,8 +106,13 @@ public class Multiplayer extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 20));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/flat-.png"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 320));
+        jLabel1.setFont(new java.awt.Font("Edwardian Script ITC", 3, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Multiplayer");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 210, -1));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/Ultimate-Material-Lollipop-Collection-65.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -119,10 +132,8 @@ public class Multiplayer extends javax.swing.JFrame {
                 Sansano player2 = new Sansano(P2.getText(),3000);
                 player1.crearMazoAzar();
                 player2.crearMazoAzar();
-                PeleaCom Multi = new PeleaCom(player1,player2,1);
+                PeleaCom2 Multi = new PeleaCom2(player1,player2,1); 
                 Multi.setLocationRelativeTo(null);
-                PeleaCom.Name.setText(user1);
-                PeleaCom.Nametxt2.setText(user2);
                 Multi.setVisible(true);
                 this.dispose();
             }
@@ -188,5 +199,6 @@ public class Multiplayer extends javax.swing.JFrame {
     public static javax.swing.JTextField P2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

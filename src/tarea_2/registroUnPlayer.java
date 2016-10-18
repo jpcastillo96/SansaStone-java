@@ -104,8 +104,6 @@ public class registroUnPlayer extends javax.swing.JFrame {
                 Modoun = ModoBin.getMode();
                 PeleaCom2 Multi = new PeleaCom2(player1,player2,0); 
                 Multi.setLocationRelativeTo(null);
-                //PeleaCom.Name.setText(user);
-                //PeleaCom.Nametxt2.setText("Oponente");
                 Multi.setVisible(true);
                 this.dispose();
             }

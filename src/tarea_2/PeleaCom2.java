@@ -7,6 +7,7 @@ package tarea_2;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 
@@ -25,6 +26,8 @@ public class PeleaCom2 extends javax.swing.JFrame {
         texto3.setVisible(true);
         texto4.setVisible(true);
         texto5.setVisible(true);
+        modoAgresivo.setVisible(false);
+        modoDefensivo.setVisible(false);
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
         this.gameMode = modeGame;
@@ -35,20 +38,20 @@ public class PeleaCom2 extends javax.swing.JFrame {
         String p2 = Integer.toString(jugador2.getPrioridad());
         prioridad1.setText(p1);
         prioridad2.setText(p2);
-        texto3.setText("Elija su Modo,tenga en cuenta que:");
-        texto4.setText(" -Modo defensivo, dota a la COM de un mazo ordenado con las cartas  de mayor curación al principio.");
-        texto5.setText("-Modo Agresivo, dota a la COM de un mazo ordenado con las cartas  de mayor ataque al principio. ");
         jugador1.crearMazoAzar();
         if (gameMode == 0){
+            modoAgresivo.setVisible(true);
+            modoDefensivo.setVisible(true);
+            texto3.setText("Elija su Modo,tenga en cuenta que:");
+            texto4.setText(" -Modo defensivo, dota a la COM de un mazo ordenado con las cartas  de mayor curación al principio.");
+            texto5.setText("-Modo Agresivo, dota a la COM de un mazo ordenado con las cartas  de mayor ataque al principio. ");
             Ataque.setEnabled(false);
             Defensa.setEnabled(false);
-            continuar.setEnabled(false);
-            
-        }
-        else{
-            modoAgresivo.setVisible(false);
-            modoDefensivo.setVisible(false);
+            continuar.setEnabled(false);            
+        }else if (gameMode == 1){
+            texto3.setText("Aprete el botón \"terminar turno\" para iniciar el juego"); 
             texto3.setText("Es el turno de "+jugador1.getNombre());
+            continuar.setEnabled(false);
             Curso ejemplo1 = new Curso();
             Profesor ejemplo2 = new Profesor();
             Carrete ejemplo3 = new Carrete();
@@ -56,20 +59,20 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 Curso cardAux;
                 cardAux = (Curso)jugador1.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
             }
             else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                 Profesor cardAux;
                 cardAux = (Profesor)jugador1.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
 
             }
             else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                 Carrete cardAux;
                 cardAux = (Carrete)jugador1.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
             }
             
         }
@@ -94,6 +97,8 @@ public class PeleaCom2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cheat = new javax.swing.JButton();
+        cheat1 = new javax.swing.JButton();
         Picture1 = new javax.swing.JLabel();
         Pictur2 = new javax.swing.JLabel();
         texto2 = new javax.swing.JLabel();
@@ -112,13 +117,39 @@ public class PeleaCom2 extends javax.swing.JFrame {
         Ataque = new javax.swing.JButton();
         Defensa = new javax.swing.JButton();
         continuar = new javax.swing.JButton();
+        ejAtaque = new javax.swing.JLabel();
+        ejContinue = new javax.swing.JLabel();
+        ejCura = new javax.swing.JLabel();
+        Contador = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SansaStone™ 2.0");
         setIconImage(getIconImage());
+        setPreferredSize(new java.awt.Dimension(1020, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cheat.setBorder(null);
+        cheat.setBorderPainted(false);
+        cheat.setContentAreaFilled(false);
+        cheat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cheatActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cheat, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 80, 10, 10));
+
+        cheat1.setBorder(null);
+        cheat1.setBorderPainted(false);
+        cheat1.setContentAreaFilled(false);
+        cheat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cheat1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cheat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 80, 10, 10));
 
         Picture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/avatar_7cdd33eb8d4a_128.png"))); // NOI18N
         getContentPane().add(Picture1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 120));
@@ -127,6 +158,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
         getContentPane().add(Pictur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, -1));
 
         texto2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        texto2.setForeground(new java.awt.Color(204, 204, 204));
         texto2.setText("Jugador 2:");
         getContentPane().add(texto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 140, -1, 20));
 
@@ -136,14 +168,15 @@ public class PeleaCom2 extends javax.swing.JFrame {
 
         Priori2.setFont(new java.awt.Font("Consolas", 1, 10)); // NOI18N
         Priori2.setText("Prioridad: ");
-        getContentPane().add(Priori2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        getContentPane().add(Priori2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, 10));
 
         texto1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        texto1.setForeground(new java.awt.Color(204, 204, 204));
         texto1.setText("Jugador 1:");
         getContentPane().add(texto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-        getContentPane().add(name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 100, 20));
-        getContentPane().add(prioridad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 110, 20));
-        getContentPane().add(prioridad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 170, 130, 20));
+        getContentPane().add(name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 70, 20));
+        getContentPane().add(prioridad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 110, 10));
+        getContentPane().add(prioridad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 170, 130, 10));
         getContentPane().add(name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 140, 80, 20));
 
         modoDefensivo.setText("Modo Defensivo");
@@ -152,7 +185,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 modoDefensivoActionPerformed(evt);
             }
         });
-        getContentPane().add(modoDefensivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 150, 40));
+        getContentPane().add(modoDefensivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 150, 40));
 
         modoAgresivo.setText("Modo Agresivo");
         modoAgresivo.addActionListener(new java.awt.event.ActionListener() {
@@ -160,26 +193,30 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 modoAgresivoActionPerformed(evt);
             }
         });
-        getContentPane().add(modoAgresivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 140, 40));
+        getContentPane().add(modoAgresivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 140, 40));
 
         texto3.setBackground(new java.awt.Color(255, 255, 255));
         texto3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         texto3.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(texto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 380, 30));
+        texto3.setText("Elija su Modo,tenga en cuenta que:");
+        getContentPane().add(texto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 420, 40));
 
         texto4.setBackground(new java.awt.Color(255, 255, 255));
         texto4.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(texto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, -1, -1));
+        getContentPane().add(texto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 720, 30));
 
         texto5.setBackground(new java.awt.Color(255, 255, 255));
         texto5.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(texto5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
+        getContentPane().add(texto5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 570, 30));
 
-        Ataque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/fencing-game-sword-fight-fence-combat-cross-128.png"))); // NOI18N
+        Ataque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/espadit3.png"))); // NOI18N
         Ataque.setBorder(null);
         Ataque.setBorderPainted(false);
         Ataque.setContentAreaFilled(false);
         Ataque.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Ataque.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/fencing-game-sword-fight-fence-combat-cross-128.png"))); // NOI18N
+        Ataque.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/fencing-game-sword-fight-fence-combat-cross-128.png"))); // NOI18N
+        Ataque.setSelected(true);
         Ataque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AtaqueActionPerformed(evt);
@@ -191,20 +228,46 @@ public class PeleaCom2 extends javax.swing.JFrame {
         Defensa.setBorder(null);
         Defensa.setBorderPainted(false);
         Defensa.setContentAreaFilled(false);
+        Defensa.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/1458264599_piggy_bank_savings_money_investment_budget_finance_icon-icons.com_55332.png"))); // NOI18N
+        Defensa.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/cerdito.png"))); // NOI18N
+        Defensa.setSelected(true);
         Defensa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DefensaActionPerformed(evt);
             }
         });
-        getContentPane().add(Defensa, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, -1, -1));
+        getContentPane().add(Defensa, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 460, -1, -1));
 
-        continuar.setText("Continuar");
+        continuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/paper-plane (1).png"))); // NOI18N
+        continuar.setBorder(null);
+        continuar.setBorderPainted(false);
+        continuar.setContentAreaFilled(false);
+        continuar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/paper-plane (2).png"))); // NOI18N
+        continuar.setSelected(true);
         continuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 continuarActionPerformed(evt);
             }
         });
-        getContentPane().add(continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 630, -1, -1));
+        getContentPane().add(continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, -1, -1));
+
+        ejAtaque.setText("*Este botón te ayudará a atacar");
+        getContentPane().add(ejAtaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 610, -1, -1));
+
+        ejContinue.setForeground(new java.awt.Color(255, 255, 255));
+        ejContinue.setText("*Botón para terminar turno");
+        getContentPane().add(ejContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 470, -1, 20));
+
+        ejCura.setText("*Este botón te audará a curarte");
+        getContentPane().add(ejCura, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, -1, -1));
+
+        Contador.setFont(new java.awt.Font("Stencil", 1, 55)); // NOI18N
+        Contador.setForeground(new java.awt.Color(255, 255, 255));
+        Contador.setText("030");
+        getContentPane().add(Contador, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 110, 60));
+
+        jLabel1.setText("Cartas restantes");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, -1, 10));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/flat-wallpaper-3.png"))); // NOI18N
         Fondo.setPreferredSize(new java.awt.Dimension(720, 1024));
@@ -217,6 +280,9 @@ public class PeleaCom2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         Ataque.setEnabled(true);
         Defensa.setEnabled(true);
+        ejCura.setVisible(false);
+        ejContinue.setVisible(false);
+        ejAtaque.setVisible(false);
         jugador2.crearMazoDefensivo();
         modoDefensivo.setVisible(false);
         modoAgresivo.setVisible(false);
@@ -229,20 +295,20 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 Curso cardAux;
                 cardAux = (Curso)jugador1.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
             }
             else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                 Profesor cardAux;
                 cardAux = (Profesor)jugador1.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
 
             }
             else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                 Carrete cardAux;
                 cardAux = (Carrete)jugador1.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
             }
         }
         // --------------------------player 2--------------------------------
@@ -255,20 +321,20 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 Curso cardAux;
                 cardAux = (Curso)jugador2.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
             }
             else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                 Profesor cardAux;
                 cardAux = (Profesor)jugador2.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
 
             }
             else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                 Carrete cardAux;
                 cardAux = (Carrete)jugador2.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
             }
             
         }
@@ -281,6 +347,9 @@ public class PeleaCom2 extends javax.swing.JFrame {
         jugador2.crearMazoAgresivo();
         Ataque.setEnabled(true);
         Defensa.setEnabled(true);
+        ejCura.setVisible(false);
+        ejContinue.setVisible(false);
+        ejAtaque.setVisible(false);
         modoDefensivo.setVisible(false);
         modoAgresivo.setVisible(false);
         if(quienJuega == 0){
@@ -292,20 +361,20 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 Curso cardAux;
                 cardAux = (Curso)jugador1.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
             }
             else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                 Profesor cardAux;
                 cardAux = (Profesor)jugador1.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
 
             }
             else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                 Carrete cardAux;
                 cardAux = (Carrete)jugador1.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
             }
         }
         // --------------------------player 2--------------------------------
@@ -318,20 +387,20 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 Curso cardAux;
                 cardAux = (Curso)jugador2.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
             }
             else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                 Profesor cardAux;
                 cardAux = (Profesor)jugador2.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
 
             }
             else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                 Carrete cardAux;
                 cardAux = (Carrete)jugador2.getMazo().get(turnos.getTurnos());
                 texto4.setText("Tu carta es : "+cardAux.getNombre());
-                texto5.setText(cardAux.getDescripcion());
+                texto5.setText("Descripción" + cardAux.getDescripcion());
             }
             
         }
@@ -340,7 +409,10 @@ public class PeleaCom2 extends javax.swing.JFrame {
     }//GEN-LAST:event_modoAgresivoActionPerformed
     
     private void DefensaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DefensaActionPerformed
-        // TODO add your handling code here:            
+        // TODO add your handling code here:
+        ejAtaque.setVisible(false);
+        ejCura.setVisible(false);
+        ejContinue.setVisible(false);
         prioridad1.setText(Integer.toString(jugador1.getPrioridad()));
         prioridad2.setText(Integer.toString(jugador2.getPrioridad()));
         prioridad1.setVisible(true);
@@ -382,7 +454,8 @@ public class PeleaCom2 extends javax.swing.JFrame {
             }
         }
         // --------------------------player 2--------------------------------
-        else if(quienJuega == 1){
+        
+        else if((quienJuega == 1) && (gameMode == 1)){
             Curso ejemplo1 = new Curso();
             Profesor ejemplo2 = new Profesor();
             Carrete ejemplo3 = new Carrete();
@@ -419,6 +492,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
             }            
         }
         
+        
     }//GEN-LAST:event_DefensaActionPerformed
 
     private void AtaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtaqueActionPerformed
@@ -427,6 +501,9 @@ public class PeleaCom2 extends javax.swing.JFrame {
         prioridad2.setText(Integer.toString(jugador2.getPrioridad()));
         prioridad1.setVisible(true);
         prioridad2.setVisible(true);
+        ejAtaque.setVisible(false);
+        ejCura.setVisible(false);
+        ejContinue.setVisible(false);
         if(quienJuega == 0){
             Curso ejemplo1 = new Curso();
             Profesor ejemplo2 = new Profesor();
@@ -463,11 +540,11 @@ public class PeleaCom2 extends javax.swing.JFrame {
             }
         }
         // --------------------------player 2--------------------------------
-        else if(quienJuega == 1){
+        else if((quienJuega == 1) && (gameMode == 1)){
             Curso ejemplo1 = new Curso();
             Profesor ejemplo2 = new Profesor();
             Carrete ejemplo3 = new Carrete();
-            texto3.setText("Es el turno de "+jugador2.getNombre());
+            texto3.setText("Es el turno de la "+jugador2.getNombre());
             if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo1.getClass()){
                 Curso cardAux;
                 cardAux = (Curso)jugador2.getMazo().get(turnos.getTurnos());
@@ -488,7 +565,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 texto3.setText(jugador2.getNombre());
                 texto4.setText("Que lastima te has hecho daño");
                 texto5.setText("Tu prioridad ahora es :" + jugador2.getPrioridad());
-                quienJuega = 1;
+                quienJuega = 0;
                 Ataque.setEnabled(false);
                 Defensa.setEnabled(false);
                 continuar.setEnabled(true);
@@ -498,7 +575,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
             if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                 JOptionPane.showMessageDialog(null,"Esta carta solo puede curarte","Mensaje",JOptionPane.PLAIN_MESSAGE);
             }
-            
+                   
         }
        
     }//GEN-LAST:event_AtaqueActionPerformed
@@ -507,6 +584,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         prioridad1.setText(Integer.toString(jugador1.getPrioridad()));
         prioridad2.setText(Integer.toString(jugador2.getPrioridad()));
+        Contador.setText("0"+Integer.toString(30-turnos.getTurnos()));
         prioridad1.setVisible(true);
         prioridad2.setVisible(true);
         Ataque.setEnabled(true);
@@ -516,12 +594,20 @@ public class PeleaCom2 extends javax.swing.JFrame {
         Profesor ejemplo2 = new Profesor();
         Carrete ejemplo3 = new Carrete();
         
-        if ((jugador1.getPrioridad() == 0) || (turnos.getTurnos() == 0)){
-                Podio podio = new Podio(); 
-                podio.setLocationRelativeTo(null);
-                podio.setVisible(true);
-                this.dispose();  
-                k
+        if ((jugador1.getPrioridad() == 0) || (turnos.getTurnos() > 29  )){
+            int winner = 2;
+            Podio podio = new Podio(winner); 
+            podio.setLocationRelativeTo(null);
+            podio.setVisible(true);
+            Podio.jugadorW.setText(jugador1.getNombre());
+            this.dispose(); 
+        }else if (0 == jugador2.getPrioridad()){
+            int winner = 1;
+            Podio podio = new Podio(winner); 
+            podio.setLocationRelativeTo(null);
+            podio.setVisible(true);
+            Podio.jugadorW.setText(jugador1.getNombre());
+            this.dispose(); 
         }
         
         if (quienJuega == 0){
@@ -530,58 +616,136 @@ public class PeleaCom2 extends javax.swing.JFrame {
                     Curso cardAux;
                     cardAux = (Curso)jugador1.getMazo().get(turnos.getTurnos());
                     texto4.setText("Tu carta es : "+cardAux.getNombre());
-                    texto5.setText(cardAux.getDescripcion());
+                    texto5.setText("Descripción" + cardAux.getDescripcion());
                 }
                 else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                     Profesor cardAux;
                     cardAux = (Profesor)jugador1.getMazo().get(turnos.getTurnos());
                     texto4.setText("Tu carta es : "+cardAux.getNombre());
-                    texto5.setText(cardAux.getDescripcion());
+                    texto5.setText("Descripción" + cardAux.getDescripcion());
 
                 }
                 else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                     Carrete cardAux;
                     cardAux = (Carrete)jugador1.getMazo().get(turnos.getTurnos());
                     texto4.setText("Tu carta es : "+cardAux.getNombre());
-                    texto5.setText(cardAux.getDescripcion());
+                    texto5.setText("Descripción" + cardAux.getDescripcion());
                 }
             }
             
-            if (quienJuega == 1){
+        else if ((quienJuega == 1) && (gameMode == 1)){
                 texto3.setText("Es el turno de "+jugador2.getNombre());
                 if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo1.getClass()){
                     Curso cardAux;
                     cardAux = (Curso)jugador2.getMazo().get(turnos.getTurnos());
                     texto4.setText("Tu carta es : "+cardAux.getNombre());
-                    texto5.setText(cardAux.getDescripcion());
+                    texto5.setText("Descripción" + cardAux.getDescripcion());
+                    
                 }
                 else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                     Profesor cardAux;
                     cardAux = (Profesor)jugador2.getMazo().get(turnos.getTurnos());
                     texto4.setText("Tu carta es : "+cardAux.getNombre());
-                    texto5.setText(cardAux.getDescripcion());
+                    texto5.setText("Descripción" + cardAux.getDescripcion());
 
                 }
                 else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                     Carrete cardAux;
                     cardAux = (Carrete)jugador2.getMazo().get(turnos.getTurnos());
                     texto4.setText("Tu carta es : "+cardAux.getNombre());
-                    texto5.setText(cardAux.getDescripcion());
+                    texto5.setText("Descripción" + cardAux.getDescripcion());
                 }
             }
+        else if ((quienJuega == 1) && (gameMode == 0)){
+                int numero;
+                Random rnd = new Random();  
+                numero = (int)((rnd.nextDouble()*1.0));
+                System.out.println(Integer.toString(numero));    
+                System.out.println("aqui");
+                Ataque.setEnabled(false);
+                Defensa.setEnabled(false);
+                continuar.setEnabled(true);
+            if ((jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo1.getClass()) && (numero == 0)){
+                Curso cardAux;
+                cardAux = (Curso)jugador2.getMazo().get(turnos.getTurnos());
+                cardAux.Aprobar(jugador2);
+                texto3.setText(jugador2.getNombre());
+                texto4.setText("Que bien te has curado ");
+                texto5.setText("tu prioridad ahora es :"+jugador2.getPrioridad());
+                quienJuega = 0;
+                turnos.addTurnos();
+            }
+            else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()) {
+                Carrete cardAux;
+                cardAux = (Carrete)jugador2.getMazo().get(turnos.getTurnos());
+                cardAux.Carretear(jugador2);
+                texto3.setText(jugador2.getNombre());
+                texto4.setText("Que bien te has curado ");
+                texto5.setText("tu prioridad ahora es :"+jugador2.getPrioridad());
+                quienJuega = 0;
+                Ataque.setEnabled(false);
+                Defensa.setEnabled(false);
+                continuar.setEnabled(true);
+                turnos.addTurnos();
+            }
+            else if ((jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo1.getClass()) && (numero == 1)){
+                Curso cardAux;
+                cardAux = (Curso)jugador2.getMazo().get(turnos.getTurnos());
+                cardAux.Reprobar(jugador1);
+                texto3.setText(jugador2.getNombre());
+                texto4.setText("Has atacado a "+ jugador1.getNombre());
+                texto5.setText("Su prioridad ahora es :"+ jugador1.getPrioridad());
+                quienJuega = 0;
+                Ataque.setEnabled(false);
+                Defensa.setEnabled(false);
+                continuar.setEnabled(true);
+                turnos.addTurnos();
+            }
+            else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
+                Profesor cardAux;
+                cardAux = (Profesor)jugador2.getMazo().get(turnos.getTurnos());
+                cardAux.Recorregir(jugador2);
+                texto3.setText(jugador2.getNombre());
+                texto4.setText("Que lastima te has hecho daño");
+                texto5.setText("Tu prioridad ahora es :" + jugador2.getPrioridad());
+                quienJuega = 0;
+                Ataque.setEnabled(false);
+                Defensa.setEnabled(false);
+                continuar.setEnabled(true);
+                turnos.addTurnos();
+
+            }
+        }
         
     }//GEN-LAST:event_continuarActionPerformed
+
+    private void cheatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheatActionPerformed
+        // TODO add your handling code here:
+        jugador2.setPrioridad(0);
+    }//GEN-LAST:event_cheatActionPerformed
+
+    private void cheat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheat1ActionPerformed
+        // TODO add your handling code here:
+        jugador1.setPrioridad(0);
+    }//GEN-LAST:event_cheat1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ataque;
+    private javax.swing.JLabel Contador;
     private javax.swing.JButton Defensa;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Pictur2;
     public static javax.swing.JLabel Picture1;
     private javax.swing.JLabel Priori;
     private javax.swing.JLabel Priori2;
+    private javax.swing.JButton cheat;
+    private javax.swing.JButton cheat1;
     private javax.swing.JButton continuar;
+    private javax.swing.JLabel ejAtaque;
+    private javax.swing.JLabel ejContinue;
+    private javax.swing.JLabel ejCura;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton modoAgresivo;
     private javax.swing.JButton modoDefensivo;
     public static javax.swing.JLabel name1;
@@ -590,7 +754,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
     private javax.swing.JLabel prioridad2;
     private javax.swing.JLabel texto1;
     private javax.swing.JLabel texto2;
-    private javax.swing.JLabel texto3;
+    public javax.swing.JLabel texto3;
     private javax.swing.JLabel texto4;
     private javax.swing.JLabel texto5;
     // End of variables declaration//GEN-END:variables
