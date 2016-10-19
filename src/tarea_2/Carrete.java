@@ -69,14 +69,7 @@ public class Carrete extends Carta {
         
     }
     
-    @Override
-    public void Activar(Sansano jugador) {
-        int clock =0;
-        int opcion = PeleaCom.activar;
-        while(opcion == 0){
-            clock++;
-            opcion = PeleaCom.activar;
-        }
+    public void Activar(Sansano jugador,int opcion) {
         Carretear(jugador);
     }
     

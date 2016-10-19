@@ -435,11 +435,11 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 Defensa.setEnabled(false);
                 continuar.setEnabled(true);
             }
-            if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
+            else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                 JOptionPane.showMessageDialog(null,"Esta carta solo te inflinge daño","Mensaje",JOptionPane.PLAIN_MESSAGE);
 
             }
-            if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
+            else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                 Carrete cardAux;
                 cardAux = (Carrete)jugador1.getMazo().get(turnos.getTurnos());
                 cardAux.Carretear(jugador1);
@@ -473,11 +473,11 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 continuar.setEnabled(true);
                 turnos.addTurnos();
             }
-            if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
+            else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                 JOptionPane.showMessageDialog(null,"Esta carta solo te inflinge daño","Mensaje",JOptionPane.PLAIN_MESSAGE);
 
             }
-            if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
+            else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                 Carrete cardAux;
                 cardAux = (Carrete)jugador2.getMazo().get(turnos.getTurnos());
                 cardAux.Carretear(jugador2);
@@ -521,7 +521,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 Defensa.setEnabled(false);
                 continuar.setEnabled(true);
             }
-            if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
+            else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                 Profesor cardAux;
                 cardAux = (Profesor)jugador1.getMazo().get(turnos.getTurnos());
                 cardAux.Recorregir(jugador1);
@@ -535,7 +535,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 
 
             }
-            if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
+            else if (jugador1.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                 JOptionPane.showMessageDialog(null,"Esta carta solo puede curarte","Mensaje",JOptionPane.PLAIN_MESSAGE);
             }
         }
@@ -558,7 +558,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 continuar.setEnabled(true);
                 turnos.addTurnos();
             }
-            if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
+            else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo2.getClass()){
                 Profesor cardAux;
                 cardAux = (Profesor)jugador2.getMazo().get(turnos.getTurnos());
                 cardAux.Recorregir(jugador2);
@@ -572,7 +572,7 @@ public class PeleaCom2 extends javax.swing.JFrame {
                 turnos.addTurnos();
 
             }
-            if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
+            else if (jugador2.getMazo().get(turnos.getTurnos()).getClass()== ejemplo3.getClass()){
                 JOptionPane.showMessageDialog(null,"Esta carta solo puede curarte","Mensaje",JOptionPane.PLAIN_MESSAGE);
             }
                    

@@ -55,9 +55,7 @@ public class Profesor extends Carta {
     }
     
     @Override
-    public void Activar(Sansano jugador) {
-        System.out.println("Ingrese cualquier número para continuar:");
-        Scanner opcion = new Scanner(System.in);
+    public void Activar(Sansano jugador , int opcion) {
         Recorregir(jugador);
     }
     

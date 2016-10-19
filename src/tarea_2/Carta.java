@@ -4,7 +4,7 @@ public abstract class Carta {
     protected String nombre;
     protected String descripcion;
     
-    public abstract void Activar(Sansano jugador);
+    public abstract void Activar(Sansano jugador , int  opcion);
     
     public String getNombre(){
         return this.nombre;

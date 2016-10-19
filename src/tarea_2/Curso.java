@@ -3,8 +3,8 @@ package tarea_2;
 import java.util.Scanner;
 
 public class Curso extends Carta{
-    int ataque;
-    int defensa;
+    private int ataque;
+    private int defensa;
     
     public Curso(){
         this ("","",0,0);
@@ -180,27 +180,16 @@ public class Curso extends Carta{
     }
         
     @Override    
-    public void Activar(Sansano jugador) {
-        int opcion = PeleaCom.AtackOrDefence;
+    public void Activar(Sansano jugador, int opcion ) {       
         System.out.println("Ingrese 0 para curarse y 1 para atacar :");
         PeleaCom.turno = true;
-        while (opcion == 5){
-            opcion = PeleaCom.AtackOrDefence;//CAMBIAR POR CLOCK!!!
-            try {
-                Thread.sleep(1000); // 1000 es tiempo en milisegundos.
-                } catch (Exception e) {
-            e.printStackTrace();
-            }
-        }
-        if (opcion == 0){
-            PeleaCom.AtackOrDefence = 5 ;
+         if (opcion == 0){
             Aprobar(jugador);
-            
-        }
-        if (opcion == 1){
-            PeleaCom.AtackOrDefence = 5 ;
-            Reprobar(jugador);
-        }
+         }
+         else{
+             Reprobar(jugador);
+         }
+        
             
     }
     

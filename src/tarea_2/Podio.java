@@ -79,12 +79,12 @@ public class Podio extends javax.swing.JFrame {
         Titulado.setFont(new java.awt.Font("Haettenschweiler", 1, 48)); // NOI18N
         Titulado.setForeground(new java.awt.Color(51, 0, 51));
         Titulado.setText("Te has titulado!");
-        getContentPane().add(Titulado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 390, 50));
+        getContentPane().add(Titulado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 440, 50));
 
         Expulsado.setFont(new java.awt.Font("Haettenschweiler", 1, 44)); // NOI18N
         Expulsado.setForeground(new java.awt.Color(255, 255, 255));
         Expulsado.setText("VTR4, te han expulsado!");
-        getContentPane().add(Expulsado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 430, 40));
+        getContentPane().add(Expulsado, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 10, 620, 40));
 
         jugadorW.setFont(new java.awt.Font("Harlow Solid Italic", 3, 48)); // NOI18N
         jugadorW.setForeground(new java.awt.Color(0, 102, 102));
@@ -92,7 +92,7 @@ public class Podio extends javax.swing.JFrame {
 
         Expgif.setForeground(new java.awt.Color(51, 51, 0));
         Expgif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/giphy (3).gif"))); // NOI18N
-        getContentPane().add(Expgif, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 400, 320));
+        getContentPane().add(Expgif, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 380, 320));
 
         Titgif.setBackground(new java.awt.Color(255, 0, 0));
         Titgif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/giphy (1).gif"))); // NOI18N
