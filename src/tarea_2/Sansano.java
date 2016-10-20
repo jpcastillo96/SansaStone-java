@@ -8,7 +8,13 @@ public class Sansano {
     private String nombre;
     private int prioridad;    
     List <Carta> mazo= new LinkedList();
-    
+    /******** Funcion: constructor Sansano********************
+    Descripcion: inicializa al jugador con un nombre y prioridad.
+    Parametros:
+    * String nombre
+    * int prioridad
+    Retorno: jugador inicializado
+    ************************************************/
     public Sansano(String nombre,int prioridad){
         this.nombre = nombre;
         this.prioridad = prioridad;  
@@ -17,26 +23,60 @@ public class Sansano {
     public Sansano(){
         this("Oponente",3000);
     }
-    
+    /******** Funcion: getNombre********************
+    Descripcion: obtiene el nombre del jugador
+    Parametros:
+    * void
+    Retorno: el nombre del jugador
+    ************************************************/
     public String getNombre(){
         return this.nombre;
     }
     
+    /******** Funcion: getPrioridad********************
+    Descripcion: obtiene la Prioridad del jugador
+    Parametros:
+    * void
+    Retorno: Prioridad del jugador
+    ************************************************/
     public int getPrioridad(){
         return this.prioridad;
     }
     
+    /******** Funcion: getMazo ********************
+    Descripcion: obtiene el mazo del jugador
+    Parametros:
+    * void
+    Retorno: mazo del jugador
+    ************************************************/
     public List getMazo(){
         return this.mazo;
     }
     
+    /******** Funcion: setPrioridad ********************
+    Descripcion: define la Prioridad del jugador
+    Parametros:
+    * int n
+    Retorno: void
+    ************************************************/
     public void setPrioridad(int n){
             this.prioridad = n;
     }
-    
+    /******** Funcion: setNombre********************
+    Descripcion: define el nombre del jugador
+    Parametros:
+    * String newName
+    Retorno: void
+    ************************************************/
     public void setNombre(String newName){
         this.nombre = newName;
     }
+    /******** Funcion: crearMazoAzar ********************
+    Descripcion: crea un mazo ordenado aleatoriamente
+    Parametros:
+    * void
+    Retorno: void
+    ************************************************/
     public void crearMazoAzar(){
         int[] cartas1 = {1,4,2,6,3,4,1,1,1,1,1,1,1,1,1,1};
         int[] cartas2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -72,6 +112,12 @@ public class Sansano {
         }
         
     }
+    /******** Funcion: crearMazoAgresivo ********************
+    Descripcion: crea un mazo ordenado descendentemente,según la carta con ataque más alto.
+    Parametros:
+    * void
+    Retorno: void
+    ************************************************/
     public void crearMazoAgresivo(){
         int numero;
         double index = 20.0;
@@ -99,6 +145,12 @@ public class Sansano {
             
         }        
     }
+    /******** Funcion: crearMazoDefensivo ********************
+   Descripcion: crea un mazo ordenado descendentemente,según la carta con la defensa más alta.
+    Parametros:
+    * void
+    Retorno: void
+    ************************************************/
     public void crearMazoDefensivo(){
         int numero;
         double index = 20.0;

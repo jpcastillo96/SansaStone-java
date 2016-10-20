@@ -17,9 +17,21 @@ public class Ventana extends javax.swing.JFrame {
     /**
      * Creates new form Ventana
      */
+    /******** Funcion: Constructor registroUnPlayer ********************
+    Descripcion: inicializa la ventana donde se efectuara el registro del jugador del juego.
+    Parametros:
+    void
+    Retorno: apertura de la ventana.
+    ************************************************/
     public Ventana() {
         initComponents();
     }
+    /******** Funcion: getIconImage ********************
+    Descripcion: le pone un icono a la ventana
+    Parametros:
+    * void
+    Retorno: void
+    ************************************************/
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("tarea_2/imagenes/icono.png"));
@@ -76,7 +88,7 @@ public class Ventana extends javax.swing.JFrame {
         Un_jugador.setContentAreaFilled(false);
         Un_jugador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Un_jugador.setFocusPainted(false);
-        Un_jugador.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/thinking (1).png"))); // NOI18N
+        Un_jugador.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/thinking.png"))); // NOI18N
         Un_jugador.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/tarea_2/imagenes/graduate.png"))); // NOI18N
         Un_jugador.setSelected(true);
         Un_jugador.addActionListener(new java.awt.event.ActionListener() {
@@ -129,11 +141,22 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_salirActionPerformed
-
+    /******** Funcion: salirMouseClicked ********************
+    Descripcion: Cierra el juego.
+    Parametros:
+        java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
         System.exit(0);
     }//GEN-LAST:event_salirMouseClicked
-
+    
+    /******** Funcion: Un_jugadorActionPerformed ********************
+    Descripcion: inicializa la ventana para registrar un solo jugador
+    Parametros:
+        java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void Un_jugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Un_jugadorActionPerformed
         // TODO add your handling code here:
         registroUnPlayer Multi = new registroUnPlayer();
@@ -142,10 +165,15 @@ public class Ventana extends javax.swing.JFrame {
         this.dispose();
                
     }//GEN-LAST:event_Un_jugadorActionPerformed
-
+    
+    /******** Funcion: AmigoActionPerformed ********************
+    Descripcion: inicializa la ventana para registrar a dos jugadores
+    Parametros:
+        java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void AmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmigoActionPerformed
         // TODO add your handling code here:
-        Modo modo = new Modo(0);
         Multiplayer Multi = new Multiplayer();
         Multi.setLocationRelativeTo(null);
         Multi.setVisible(true);

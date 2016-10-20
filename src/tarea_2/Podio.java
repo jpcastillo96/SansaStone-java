@@ -17,6 +17,12 @@ public class Podio extends javax.swing.JFrame {
     /**
      * Creates new form Podio
      */
+    /******** Funcion: Constructor Podio ********************
+    Descripcion: inicializa la ventana donde se Mostrará si se ganó o perdió
+    Parametros:
+    int winner
+    Retorno: apertura de la ventana.
+    ************************************************/
     public Podio(int winner) {
         initComponents();
         if (winner == 1){
@@ -32,8 +38,15 @@ public class Podio extends javax.swing.JFrame {
             Expulsado.setVisible(true);
         }
     }
+    
+    /******** Funcion: getIconImage ********************
+    Descripcion: le pone un icono a la ventana
+    Parametros:
+    * void
+    Retorno: void
+    ************************************************/
     @Override
-     public Image getIconImage() {
+    public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("tarea_2/imagenes/icono.png"));
         return retValue;
     }
@@ -47,8 +60,8 @@ public class Podio extends javax.swing.JFrame {
     private void initComponents() {
 
         Menu = new javax.swing.JButton();
-        Titulado = new javax.swing.JLabel();
         Expulsado = new javax.swing.JLabel();
+        Titulado = new javax.swing.JLabel();
         jugadorW = new javax.swing.JLabel();
         Expgif = new javax.swing.JLabel();
         Titgif = new javax.swing.JLabel();
@@ -76,15 +89,15 @@ public class Podio extends javax.swing.JFrame {
         });
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
-        Titulado.setFont(new java.awt.Font("Haettenschweiler", 1, 48)); // NOI18N
-        Titulado.setForeground(new java.awt.Color(51, 0, 51));
-        Titulado.setText("Te has titulado!");
-        getContentPane().add(Titulado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 440, 50));
-
         Expulsado.setFont(new java.awt.Font("Haettenschweiler", 1, 44)); // NOI18N
         Expulsado.setForeground(new java.awt.Color(255, 255, 255));
         Expulsado.setText("VTR4, te han expulsado!");
-        getContentPane().add(Expulsado, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 10, 620, 40));
+        getContentPane().add(Expulsado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 620, 40));
+
+        Titulado.setFont(new java.awt.Font("Haettenschweiler", 1, 48)); // NOI18N
+        Titulado.setForeground(new java.awt.Color(51, 0, 51));
+        Titulado.setText("Te has titulado!");
+        getContentPane().add(Titulado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 440, 50));
 
         jugadorW.setFont(new java.awt.Font("Harlow Solid Italic", 3, 48)); // NOI18N
         jugadorW.setForeground(new java.awt.Color(0, 102, 102));
@@ -104,7 +117,12 @@ public class Podio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /******** Funcion: MenuActionPerformed ********************
+    Descripcion: Botón que regresa al menú
+    Parametros:
+    java.awt.event.ActionEvent evt
+    Retorno: apertura de la ventana "Ventana".
+    ************************************************/
     private void MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActionPerformed
         // TODO add your handling code here:
         Ventana window = new Ventana();

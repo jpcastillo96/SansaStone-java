@@ -18,7 +18,14 @@ public class PeleaCom2 extends javax.swing.JFrame {
     static Duelo turnos = new Duelo();
     static int quienJuega;
 
-    
+    /******** Funcion: Constructor PeleaCom2 ********************
+    Descripcion: inicializa la ventana donde se efectuara la batalla del juego
+    Parametros:
+    Sansano jugador1  
+    Sansano jugador2 
+    int modeGame
+    Retorno: apertura de la ventana.
+    ************************************************/
     public PeleaCom2(Sansano jugador1 , Sansano jugador2 , int modeGame) {
         initComponents();
         texto1.setVisible(true);
@@ -81,6 +88,13 @@ public class PeleaCom2 extends javax.swing.JFrame {
         
         
     }
+    
+    /******** Funcion: getIconImage ********************
+    Descripcion: le pone un icono a la ventana
+    Parametros:
+    * void
+    Retorno: void
+    ************************************************/
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("tarea_2/imagenes/icono.png"));
@@ -275,7 +289,13 @@ public class PeleaCom2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+    /******** Funcion: modoDefensivoActionPerformed ********************
+    Descripcion: desaparece labels y principalmente dota a la COM de una baraja ordendada descendentemente,
+    según la defensa más alta.
+    Parametros:
+    java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void modoDefensivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modoDefensivoActionPerformed
         // TODO add your handling code here:
         Ataque.setEnabled(true);
@@ -341,7 +361,13 @@ public class PeleaCom2 extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_modoDefensivoActionPerformed
-    
+    /******** Funcion: AgresivoActionPerformed  ********************
+    Descripcion: desaparece labels y principalmente dota a la COM de una baraja ordendada descendentemente,
+    según  ataque más alto.
+    Parametros:
+    java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void modoAgresivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modoAgresivoActionPerformed
         // TODO add your handling code here:
         jugador2.crearMazoAgresivo();
@@ -407,7 +433,12 @@ public class PeleaCom2 extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_modoAgresivoActionPerformed
-    
+     /******** Funcion: DefensaActionPerformed  ********************
+    Descripcion: setea labels y principalmente cura al usuario según el turno.
+    Parametros:
+    java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void DefensaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DefensaActionPerformed
         // TODO add your handling code here:
         ejAtaque.setVisible(false);
@@ -494,7 +525,12 @@ public class PeleaCom2 extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_DefensaActionPerformed
-
+     /******** Funcion: AtaqueActionPerformed  ********************
+    Descripcion: setea labels y principalmente reprueba al usuario o enemigo según la carta.
+    Parametros:
+    java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void AtaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtaqueActionPerformed
         // TODO add your handling code here:  
         prioridad1.setText(Integer.toString(jugador1.getPrioridad()));
@@ -580,6 +616,12 @@ public class PeleaCom2 extends javax.swing.JFrame {
        
     }//GEN-LAST:event_AtaqueActionPerformed
     public static int activar=0;
+     /******** Funcion: continuarActionPerformed ********************
+    Descripcion: setea labels,realiza el ataque de la com y principalmente continua con el siguiente turno.
+    Parametros:
+    java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
         // TODO add your handling code here:
         prioridad1.setText(Integer.toString(jugador1.getPrioridad()));
@@ -718,12 +760,22 @@ public class PeleaCom2 extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_continuarActionPerformed
-
+     /******** Funcion: cheatActionPerformed ********************
+    Descripcion: al apretar el ojo izquierdo del mono deja al jugador 2 con prioridad 0
+    Parametros:
+    java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void cheatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheatActionPerformed
         // TODO add your handling code here:
         jugador2.setPrioridad(0);
     }//GEN-LAST:event_cheatActionPerformed
-
+     /******** Funcion: cheat1ActionPerformed ********************
+    Descripcion: al apretar el ojo derecho del mono deja al jugador 1 con prioridad 0
+    Parametros:
+    java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void cheat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheat1ActionPerformed
         // TODO add your handling code here:
         jugador1.setPrioridad(0);

@@ -18,9 +18,21 @@ public class Multiplayer extends javax.swing.JFrame {
     /**
      * Creates new form Registro1
      */
+    /******** Funcion: Constructor Multiplayer ********************
+    Descripcion: inicializa la ventana donde se efectuara el registro de los dos jugadores del juego.
+    Parametros:
+    void
+    Retorno: apertura de la ventana.
+    ************************************************/
     public Multiplayer() {
         initComponents();
     }
+    /******** Funcion: getIconImage ********************
+    Descripcion: le pone un icono a la ventana
+    Parametros:
+    * void
+    Retorno: void
+    ************************************************/
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("tarea_2/imagenes/icono.png"));
@@ -120,9 +132,23 @@ public class Multiplayer extends javax.swing.JFrame {
     private void P2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_P2ActionPerformed
+    
+    /******** Funcion: advertencia ********************
+    Descripcion: Alerta por haber ingresado mal los datos.
+    Parametros:
+    * void
+    Retorno: void
+    ************************************************/
     private void advertencia(){
             JOptionPane.showMessageDialog(null,"ingrese sus datos","Mensaje",JOptionPane.PLAIN_MESSAGE);
     }
+    
+    /******** Funcion: jButton1ActionPerformed ********************
+    Descripcion: recibe los nombres de los jugadores, crea sus barajas y abre la ventana PeleaCom2 (juego principal)
+    Parametros:
+        java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String user1 = P1.getText();
@@ -141,10 +167,14 @@ public class Multiplayer extends javax.swing.JFrame {
                 advertencia();              
             }
     }//GEN-LAST:event_jButton1ActionPerformed
-     public void capturaNombres(){
-        String user1 = P1.getText();
-        String user2 = P2.getText();              
-    }
+    
+    /******** Funcion: jButton2ActionPerformed ********************
+    Descripcion: Regresa al menú principal de selección.
+    Parametros:
+        java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Ventana window= new Ventana();
@@ -152,7 +182,7 @@ public class Multiplayer extends javax.swing.JFrame {
         window.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
+   
     private void P1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_P1ActionPerformed

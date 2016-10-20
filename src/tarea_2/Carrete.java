@@ -5,22 +5,49 @@ import java.util.Scanner;
 public class Carrete extends Carta {
     private int curacion;
     
+    /******** Funcion: constructor Carrete ********************
+    Descripcion: inicializa la carta tipo carrete
+    Parametros:
+    * String nombre
+    * String descripcion
+    * int curacion
+    Retorno: carta tipo carrete
+    ************************************************/
     public Carrete(){       
         this("","",0);
-    }
-    
+    }   
     public Carrete(String nombre,String descripcion,int curacion){
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.curacion = curacion;
     }
+    
+    /******** Funcion: getCuracion ********************
+    Descripcion: obtiene la cantidad que recupera en prioridad
+    Parametros:
+    * Void
+    Retorno: cantidad de recuperación
+    ************************************************/
     public int getCuracion(){
         return this.curacion;
     }
+    
+    /******** Funcion: setCuracion ********************
+    Descripcion: define cuanta prioridad curará la carta
+    Parametros:
+    * int curacion
+    Retorno: void
+    ************************************************/
     public void setCuracion(int curacion){
         this.curacion = curacion;
     }
     
+     /******** Funcion: cartaAzar ********************
+    Descripcion: segun un numero al azar inicializa una carta tipo carrete
+    Parametros:
+    * int numero
+    Retorno: void
+    ************************************************/
     public void cartaAzar(int numero){
         if (numero == 11){
             setNombre("Cerrito");
@@ -59,7 +86,12 @@ public class Carrete extends Carta {
             //iniCarta("FiestaOmbligo","Recupera 125 puntos de prioridad.",125);
         }
     }
-    
+    /******** Funcion: Carretear ********************
+    Descripcion: suma prioridad al jugador según la carta
+    Parametros:
+    * Sansano jugador
+    Retorno: void
+    ************************************************/
     public void Carretear(Sansano jugador){
         int priori = jugador.getPrioridad() + curacion;
         if (priori > 3000){
@@ -68,9 +100,18 @@ public class Carrete extends Carta {
         jugador.setPrioridad(priori);
         
     }
-    
-    public void Activar(Sansano jugador,int opcion) {
+    /******** Funcion: Activar ********************
+    Descripcion: activa la función carretear
+    Parametros:
+    * Sansano jugador
+    Retorno: void
+    ************************************************/
+    public void Activar(Sansano jugador) {
         Carretear(jugador);
+    }
+    @Override
+    public void Activar(Sansano jugador, int opcion) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

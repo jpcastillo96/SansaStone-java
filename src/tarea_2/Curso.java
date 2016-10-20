@@ -5,11 +5,17 @@ import java.util.Scanner;
 public class Curso extends Carta{
     private int ataque;
     private int defensa;
-    
+    /******** Funcion: constructor Curso ********************
+    Descripcion: inicializa la carta tipo curso
+    Parametros:
+    * String nombre
+    * int ataque
+    * int defensa
+    Retorno: carta tipo curso
+    ************************************************/
     public Curso(){
         this ("","",0,0);
     }
-    
     public Curso(String nombre,String descripcion,int ataque, int defensa){
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -17,14 +23,32 @@ public class Curso extends Carta{
         this.defensa = defensa;
     }
     
+     /******** Funcion: setAtaque ********************
+    Descripcion: define el ataque de la carta
+    Parametros:
+    * int ataque
+    Retorno: void
+    ************************************************/
     public void setAtaque(int ataque){
         this.ataque = ataque;
     }
     
+    /******** Funcion: setDefensa ********************
+    Descripcion: define la Defensa de la carta
+    Parametros:
+    * int defensa
+    Retorno: void
+    ************************************************/
     public void setDefensa(int defensa){
         this.defensa=defensa;
     }
     
+    /******** Funcion: cartaAzar ********************
+    Descripcion: segun un numero al azar inicializa una carta tipo curso
+    Parametros:
+    * int numero
+    Retorno: void
+    ************************************************/
     public void cartaAzar(int numero){
         if (numero == 1){
             setNombre("Matemáticas");
@@ -68,7 +92,13 @@ public class Curso extends Carta{
             //Curso("EDD",": Ataca 430/Cura 120 puntos de prioridad. Cantidad: 4",430,120);
         }
     }
-    
+     /******** Funcion: cartaAgresivo  ********************
+    Descripcion: Ordenamiento de la baraja de la Com descendentemente,
+    según  ataque más alto.
+    Parametros:
+    int numero
+    Retorno: void
+    ************************************************/
     public void cartaAgresivo(int numero){
         if (numero == 1){
             setNombre("Matemáticas");
@@ -115,6 +145,14 @@ public class Curso extends Carta{
             //Curso("Programación",": Ataca 110/Cura 300 puntos de prioridad. Cantidad: 6",110,300);
         }
     }
+    
+    /******** Funcion: cartaDefensivo  ********************
+    Descripcion: Ordenamiento de la baraja de la Com descendentemente,
+    según la defensa más alta.
+    Parametros:
+    int numero
+    Retorno: void
+    ************************************************/
     public void cartaDefensivo(int numero){
         if (1 <= numero&&numero <= 6){
             setNombre("Programación");
@@ -163,6 +201,12 @@ public class Curso extends Carta{
         
     }
     
+    /******** Funcion: Aprobar  ********************
+    Descripcion: cura al usuario o enemigo según la carta.
+    Parametros:
+    Sansano jugador
+    Retorno: void
+    ************************************************/
     public void  Aprobar(Sansano jugador){
         int priori = jugador.getPrioridad() + defensa;
         if (priori > 3000){
@@ -170,7 +214,12 @@ public class Curso extends Carta{
         }
         jugador.setPrioridad(priori);      
     }
-    
+    /******** Funcion: Reprobar  ********************
+    Descripcion: reprueba al usuario o enemigo según la carta.
+    Parametros:
+    Sansano jugador
+    Retorno: void
+    ************************************************/
     public void  Reprobar(Sansano jugador){
        int priori = jugador.getPrioridad() - ataque;
        if (priori < 0){
@@ -178,11 +227,17 @@ public class Curso extends Carta{
        }
        jugador.setPrioridad(priori);
     }
-        
+     
+    /******** Funcion: Activar ********************
+    Descripcion: activa la función aprobar (0) o reprobar (1) según el caso
+    Parametros:
+    * Sansano jugador
+    * int opcion
+    Retorno: void
+    ************************************************/
     @Override    
     public void Activar(Sansano jugador, int opcion ) {       
         System.out.println("Ingrese 0 para curarse y 1 para atacar :");
-        PeleaCom.turno = true;
          if (opcion == 0){
             Aprobar(jugador);
          }

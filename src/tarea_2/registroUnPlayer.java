@@ -14,10 +14,22 @@ public class registroUnPlayer extends javax.swing.JFrame {
     /**
      * Creates new form Registro2
      */
+    /******** Funcion: Constructor registroUnPlayer ********************
+    Descripcion: inicializa la ventana donde se efectuara el registro del jugador del juego.
+    Parametros:
+    void
+    Retorno: apertura de la ventana.
+    ************************************************/
     public registroUnPlayer() {
         initComponents();
        
     }
+    /******** Funcion: getIconImage ********************
+    Descripcion: le pone un icono a la ventana
+    Parametros:
+    * void
+    Retorno: void
+    ************************************************/
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("tarea_2/imagenes/icono.png"));
@@ -87,11 +99,24 @@ public class registroUnPlayer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreActionPerformed
     
+    /******** Funcion: advertencia ********************
+    Descripcion: Alerta por haber ingresado mal los datos.
+    Parametros:
+    * void
+    Retorno: void
+    ************************************************/
     private void advertencia(){
             JOptionPane.showMessageDialog(null,"ingrese sus datos","Mensaje",JOptionPane.PLAIN_MESSAGE);
     }
     public static String name1=" ";
     public static int Modoun = 2;
+    
+    /******** Funcion: iniciarActionPerformed ********************
+    Descripcion: inicializa a los jugadores y abre la ventana principal del juego (PeleaCom2)
+    Parametros:
+    * java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarActionPerformed
             String user = Nombre.getText();       
             if (user.length() != 0){
@@ -100,8 +125,6 @@ public class registroUnPlayer extends javax.swing.JFrame {
                 Sansano player2 = new Sansano();
                 System.out.println(player1.getNombre());
                 System.out.println(player2.getNombre());
-                Modo ModoBin = new Modo(0);
-                Modoun = ModoBin.getMode();
                 PeleaCom2 Multi = new PeleaCom2(player1,player2,0); 
                 Multi.setLocationRelativeTo(null);
                 Multi.setVisible(true);
@@ -112,9 +135,13 @@ public class registroUnPlayer extends javax.swing.JFrame {
             }
                 
     }//GEN-LAST:event_iniciarActionPerformed
-    public void capturaNombre(){
-        String user = Nombre.getText();               
-    }
+    
+     /******** Funcion: jButton1ActionPerformed ********************
+    Descripcion: Regresa al menú principal de selección.
+    Parametros:
+        java.awt.event.ActionEvent evt
+    Retorno: void
+    ************************************************/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Ventana window= new Ventana();

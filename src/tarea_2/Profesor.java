@@ -5,6 +5,14 @@ import java.util.Scanner;
 public class Profesor extends Carta {
     private int daño;
     
+     /******** Funcion: constructor Profesor ********************
+    Descripcion: inicializa la carta tipo profesor
+    Parametros:
+    * String nombre
+    * String descripcion
+    * int daño
+    Retorno: carta tipo carrete
+    ************************************************/
     public Profesor(){
         this("","",0);
     }
@@ -15,10 +23,21 @@ public class Profesor extends Carta {
         this.daño = daño;
     }
     
+    /******** Funcion: setDaño ********************
+    Descripcion: define cuanta prioridad quitará la carta
+    Parametros:
+    * int daño
+    Retorno: void
+    ************************************************/
     public void setDaño(int daño){
         this.daño = daño;
     }
-    
+     /******** Funcion: cartaAzar ********************
+    Descripcion: segun un numero al azar inicializa una carta tipo Profesor
+    Parametros:
+    * int numero
+    Retorno: void
+    ************************************************/
     public void cartaAzar(int numero){
         if (numero == 7){
             setNombre("Bahamondes");
@@ -46,6 +65,12 @@ public class Profesor extends Carta {
         }
     }
     
+    /******** Funcion: Recorregir ********************
+    Descripcion: resta prioridad al jugador según la carta
+    Parametros:
+    * Sansano jugador
+    Retorno: void
+    ************************************************/
     public void Recorregir(Sansano jugador){
         int priori = jugador.getPrioridad() - daño;
         if (priori < 0){
@@ -53,7 +78,12 @@ public class Profesor extends Carta {
         }
         jugador.setPrioridad(priori);
     }
-    
+    /******** Funcion: Activar ********************
+    Descripcion: activa la función recorregir
+    Parametros:
+    * Sansano jugador
+    Retorno: void
+    ************************************************/
     @Override
     public void Activar(Sansano jugador , int opcion) {
         Recorregir(jugador);
